@@ -1,0 +1,31 @@
+The following can be added to Samples\VSEditor in the macros to quickly toggle between
+CPP and H files. I map it to F4, which is the same key that the Qt Creator IDE uses to 
+toggle between files.
+
+    Sub ToggleCPPH()
+
+        Dim fileName As String = DTE.ActiveDocument.Name
+        Dim oFSO As Object
+        oFSO = CreateObject("Scripting.FileSystemObject")
+
+        If (fileName.EndsWith(".cpp")) Then
+
+            fileName = fileName.Remove(fileName.IndexOf(".")) + ".h"
+
+        Else
+
+            fileName = fileName.Remove(fileName.IndexOf(".")) + ".cpp"
+
+        End If
+
+        Dim shortPath As String
+        Dim strPath As String
+
+        strPath = DTE.ActiveDocument.Path + fileName
+        shortPath = oFSO.GetFile(strPath).ShortPath
+        DTE.ExecuteCommand("File.OpenFile", shortPath)
+
+    End Sub
+	
+	
+

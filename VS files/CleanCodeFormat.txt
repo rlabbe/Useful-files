@@ -1,0 +1,113 @@
+The following VS macro code will format the open document into the
+form used by AR projects. Right now it doesn't do much but convert
+things like "while( foo )" to "while (foo)") and fix all indentation
+to be consistant.
+
+
+Imports System
+Imports EnvDTE
+Imports EnvDTE80
+Imports EnvDTE90
+Imports EnvDTE90a
+Imports EnvDTE100
+Imports System.Diagnostics
+
+Public Module Module1
+
+    Sub FormatAll()
+        ''DTE.ActiveDocument.Selection.SelectAll()
+        DTE.ExecuteCommand("Edit.FormatSelection")
+        ''DTE.ActiveDocument.Selection.SelectAll()
+    End Sub
+
+    Sub FixParenSpace()
+        DTE.ExecuteCommand("Edit.Find")
+        DTE.ExecuteCommand("Edit.SwitchtoQuickReplace")
+        DTE.Find.Action = vsFindAction.vsFindActionReplaceAll
+        DTE.Find.FindWhat = "( "
+        DTE.Find.ReplaceWith = "("
+        DTE.Find.Target = vsFindTarget.vsFindTargetCurrentDocument
+        DTE.Find.MatchCase = False
+        DTE.Find.MatchWholeWord = False
+        DTE.Find.MatchInHiddenText = False
+        DTE.Find.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxLiteral
+        DTE.Find.ResultsLocation = vsFindResultsLocation.vsFindResultsNone
+        DTE.Find.Execute()
+    End Sub
+
+    Sub FixSpaceParen()
+        DTE.ExecuteCommand("Edit.Find")
+        DTE.ExecuteCommand("Edit.SwitchtoQuickReplace")
+        DTE.Find.MatchWholeWord = False
+        DTE.Find.FindWhat = " )"
+        DTE.Find.ReplaceWith = ")"
+        DTE.Find.Target = vsFindTarget.vsFindTargetCurrentDocument
+        DTE.Find.MatchCase = False
+        DTE.Find.MatchInHiddenText = False
+        DTE.Find.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxLiteral
+        DTE.Find.ResultsLocation = vsFindResultsLocation.vsFindResultsNone
+        DTE.Find.Action = vsFindAction.vsFindActionReplaceAll
+        DTE.Find.Execute()
+    End Sub
+
+    Sub fixIf()
+        DTE.ExecuteCommand("Edit.Replace")
+        DTE.Find.FindWhat = "if("
+        DTE.Find.ReplaceWith = "if ("
+        DTE.Find.Target = vsFindTarget.vsFindTargetCurrentDocument
+        DTE.Find.MatchCase = False
+        DTE.Find.MatchWholeWord = False
+        DTE.Find.MatchInHiddenText = False
+        DTE.Find.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxLiteral
+        DTE.Find.ResultsLocation = vsFindResultsLocation.vsFindResultsNone
+        DTE.Find.Action = vsFindAction.vsFindActionReplaceAll
+        DTE.Find.Execute()
+    End Sub
+
+    Sub fixWhile()
+        DTE.ExecuteCommand("Edit.Replace")
+        DTE.Find.FindWhat = "while("
+        DTE.Find.ReplaceWith = "while ("
+        DTE.Find.Target = vsFindTarget.vsFindTargetCurrentDocument
+        DTE.Find.MatchCase = False
+        DTE.Find.MatchWholeWord = False
+        DTE.Find.MatchInHiddenText = False
+        DTE.Find.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxLiteral
+        DTE.Find.ResultsLocation = vsFindResultsLocation.vsFindResultsNone
+        DTE.Find.Action = vsFindAction.vsFindActionReplaceAll
+        DTE.Find.Execute()
+    End Sub
+
+    Sub fixFor()
+        DTE.ExecuteCommand("Edit.Replace")
+        DTE.Find.FindWhat = "for("
+        DTE.Find.ReplaceWith = "for ("
+        DTE.Find.Target = vsFindTarget.vsFindTargetCurrentDocument
+        DTE.Find.MatchCase = False
+        DTE.Find.MatchWholeWord = False
+        DTE.Find.MatchInHiddenText = False
+        DTE.Find.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxLiteral
+        DTE.Find.ResultsLocation = vsFindResultsLocation.vsFindResultsNone
+        DTE.Find.Action = vsFindAction.vsFindActionReplaceAll
+        DTE.Find.Execute()
+    End Sub
+
+    Sub CleanCodeFormat()
+        Try
+            Dim doc As Document
+            doc = DTE.ActiveDocument
+            doc.Selection.SelectAll()
+            ''doc.Selection.DeleteWhitespace(vsWhitespaceOptions.vsWhitespaceOptionsHorizontal)
+            DTE.ExecuteCommand("Edit.FormatSelection")
+
+            FormatAll()
+            FixParenSpace()
+            FixSpaceParen()
+            fixIf()
+            fixWhile()
+            fixFor()
+        Catch e As System.Exception
+        End Try
+    End Sub
+
+End Module
