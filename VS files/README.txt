@@ -13,3 +13,5 @@ If you ever do want to step into somethign, you'll have to briefly edit the
 Registry. Ya, wonderful design Microsoft.
 
 This works for VS2010. Earlier versions did not use the registry.
+See http://blogs.msdn.com/b/andypennell/archive/2004/02/06/69004.aspx
+for more details.
