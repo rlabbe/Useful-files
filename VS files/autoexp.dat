@@ -73,10 +73,10 @@
 [AutoExpand]
 
 ; from SportVision
-NavigationLibrary::Angle= deg=<radians*57.2957795131> rad=<radians>
-NavigationLibrary::Distance= m=<meters> ft=<meters*3.2808399>
-NavigationLibrary::Position3D= lat=<Latitude.radians*57.2957795131> lon = <Longitude.radians*57.2957795131> alt=<Altitude.meters>
-NavigationLibrary::Position2D= lat=<Latitude.radians*57.2957795131> lon = <Longitude.radians*57.2957795131> alt=<Altitude.meters>
+Units::Angle= deg=<radians*57.2957795131> rad=<radians>
+Units::Distance= m=<meters> ft=<meters*3.2808399>
+Navigation::Position3D= lat=<Latitude.radians*57.2957795131> lon = <Longitude.radians*57.2957795131> alt=<Altitude.meters>
+Navigation::Position2D= lat=<Latitude.radians*57.2957795131> lon = <Longitude.radians*57.2957795131> alt=<Altitude.meters>
 SV_WorldPoint =x=<x> y=<y> z=<z>
 Vec3 = <data[0]> <data[1]> <data[2]>
 Vec4 = <data[0]> <data[1]> <data[2]> <data[3]>
