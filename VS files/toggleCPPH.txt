@@ -2,6 +2,8 @@ The following can be added to Samples\VSEditor in the macros to quickly toggle b
 CPP and H files. I map it to F4, which is the same key that the Qt Creator IDE uses to 
 toggle between files.
 
+------------ CUT HERE  ------------------
+
     Sub ToggleCPPH()
 
         Dim fileName As String = DTE.ActiveDocument.Name

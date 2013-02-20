@@ -1,0 +1,19 @@
+Windows Registry Editor Version 5.00
+
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\10.0\NativeDE\StepOver]
+"10"="boost\\:\\:shared_ptr\\:\\:.*"
+"11"="boost\\:\\:weak_ptr\\:\\:.*"
+"12"="std\\:\\:string\\:\\:.*"
+"13"="std\\:\\:vector\\<.*\\>\\:\\:.*"
+"14"="std\\:\\:basic_string\\<.*\\>\\:\\:.*"
+"15"="operator new"
+"16"="std\\:\\:map\\<.*\\>\\:\\:.*"
+"17"=".*operator.*"
+"18"="std\\:\\:.*"
+"20"="ATL\\:\\:.*"
+"22"="Vec3\\:\\:.*"
+"24"="Vec2\\:\\:.*"
+"26"="QPointF\\:\\:.*"
+"28"="QPoint\\:\\:.*"
